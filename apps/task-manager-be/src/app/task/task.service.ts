@@ -1,16 +1,18 @@
 import { Injectable } from '@nestjs/common';
-
+import {TaskEntity} from '@task-manager-workspace/models'
 @Injectable()
 export class TaskService {
-    private tasks = [
+    private tasks:TaskEntity[] = [
         {
             id: 1,
+            title:"fsdfs",
             status:"DONE",
             userId:2,
             taskText: "Buy some suppliers"
         },
          {
             id: 2,
+            title:"gdfg",
             status:"UNDONE",
             userId:2,
             taskText: "Wash the dishes"

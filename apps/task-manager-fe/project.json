@@ -88,6 +88,9 @@
         "port": 4200,
         "spa": true
       }
+    },
+    "docker:build": {
+      "dependsOn": ["build", "prune"]
     }
   }
 }

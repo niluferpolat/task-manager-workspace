@@ -1,0 +1,20 @@
+/* task-list.component.css */
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-list li {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+.task-list li.done .title {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.task-list .status {
+  margin: 0 8px;
+  font-weight: bold;
+}

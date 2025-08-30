@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import {TaskEntity} from '@task-manager-workspace/models'
+import {TaskEntity, TaskRequest} from '@task-manager-workspace/models'
 @Injectable()
 export class TaskService {
     private tasks:TaskEntity[] = [
@@ -27,6 +27,16 @@ export class TaskService {
     }
     delete(id: number){
         return this.tasks.filter(task=>task.id !== id);
+    }
+    create(taskBody:TaskRequest){
+        const taskForCreate:TaskEntity = {
+            id: Math.random(),
+            title: taskBody.title,
+            taskText: taskBody.taskText,
+            userId: taskBody.userId,
+            status: "UNDONE"
+        }
+        return this.tasks.push(taskForCreate)
     }
 
 }

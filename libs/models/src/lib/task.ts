@@ -5,4 +5,8 @@ export interface TaskEntity {
     userId: number;
     taskText: string;
 }
-
+export interface TaskRequest {
+    title: string;
+    userId: number;
+    taskText: string;
+}

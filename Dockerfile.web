@@ -1,0 +1,23 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# Copy package files first for better caching
+COPY package*.json ./
+COPY nx.json ./
+COPY tsconfig*.json ./
+COPY jest.config.* ./
+COPY jest.preset.js ./
+
+# Install dependencies
+RUN npm ci --legacy-peer-deps
+
+# Copy source code
+COPY apps/task-manager-fe ./apps/task-manager-fe
+COPY libs ./libs
+
+# Expose port
+EXPOSE 4200
+
+# Start the application
+CMD ["npx", "nx", "serve", "task-manager-fe", "--host", "0.0.0.0", "--port", "4200"]

@@ -12,6 +12,6 @@ export class TaskService {
   private baseUrl = environment.apiBaseUrl;
 
   getTasks():Observable<TaskEntity[]> {
-    return this.http.get<TaskEntity[]>(`${this.baseUrl}/tasks`);
+    return this.http.get<TaskEntity[]>(`${this.baseUrl}/api/tasks`);
   }
 }

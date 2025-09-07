@@ -1,18 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TopMenu } from './top-menu';
 
-import { TaskList } from './task-list';
-
-describe('TaskList', () => {
-  let component: TaskList;
-  let fixture: ComponentFixture<TaskList>;
+describe('TopMenu', () => {
+  let component: TopMenu;
+  let fixture: ComponentFixture<TopMenu>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [TaskList]
-    })
-    .compileComponents();
+      imports: [TopMenu],
+    }).compileComponents();
 
-    fixture = TestBed.createComponent(TaskList);
+    fixture = TestBed.createComponent(TopMenu);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

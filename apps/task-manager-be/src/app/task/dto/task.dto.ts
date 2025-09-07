@@ -1,15 +1,19 @@
-import { IsString, IsNotEmpty, IsInt } from 'class-validator';
-import { Type } from 'class-transformer';
-export class CreateTaskDto {
-@IsString()
-@IsNotEmpty()  
-taskText!: string; 
-@IsInt()
-@Type(() => Number)
-@IsNotEmpty()
-userId: number;
+import { TaskStatus } from '@task-manager-workspace/models';
+import { IsInt, IsNotEmpty, IsString, IsOptional, IsEnum } from 'class-validator';
 
-@IsNotEmpty()
-@IsString()
-title: string;
+export class CreateTaskDto {
+  @IsString() @IsNotEmpty()
+  title!: string;
+
+  @IsString() @IsNotEmpty()
+  taskText!: string;      
+
+  @IsInt()
+  userId!: number;
+
+  @IsOptional() @IsEnum(TaskStatus)
+  status?: TaskStatus;
+
+  @IsOptional()
+  priority?: number;
 }

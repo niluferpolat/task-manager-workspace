@@ -1,0 +1,61 @@
+/* Farklı Primary Color Seçenekleri */
+
+/* Yeşil Primary Color */
+:root.green-primary {
+  --p-primary-50: #f0fdf4;
+  --p-primary-100: #dcfce7;
+  --p-primary-200: #bbf7d0;
+  --p-primary-300: #86efac;
+  --p-primary-400: #4ade80;
+  --p-primary-500: #22c55e;
+  --p-primary-600: #16a34a;
+  --p-primary-700: #15803d;
+  --p-primary-800: #166534;
+  --p-primary-900: #14532d;
+  --p-primary-950: #052e16;
+}
+
+/* Mor Primary Color */
+:root.purple-primary {
+  --p-primary-50: #faf5ff;
+  --p-primary-100: #f3e8ff;
+  --p-primary-200: #e9d5ff;
+  --p-primary-300: #d8b4fe;
+  --p-primary-400: #c084fc;
+  --p-primary-500: #a855f7;
+  --p-primary-600: #9333ea;
+  --p-primary-700: #7c3aed;
+  --p-primary-800: #6b21a8;
+  --p-primary-900: #581c87;
+  --p-primary-950: #3b0764;
+}
+
+/* Kırmızı Primary Color */
+:root.red-primary {
+  --p-primary-50: #fef2f2;
+  --p-primary-100: #fee2e2;
+  --p-primary-200: #fecaca;
+  --p-primary-300: #fca5a5;
+  --p-primary-400: #f87171;
+  --p-primary-500: #ef4444;
+  --p-primary-600: #dc2626;
+  --p-primary-700: #b91c1c;
+  --p-primary-800: #991b1b;
+  --p-primary-900: #7f1d1d;
+  --p-primary-950: #450a0a;
+}
+
+/* Turuncu Primary Color */
+:root.orange-primary {
+  --p-primary-50: #fff7ed;
+  --p-primary-100: #ffedd5;
+  --p-primary-200: #fed7aa;
+  --p-primary-300: #fdba74;
+  --p-primary-400: #fb923c;
+  --p-primary-500: #f97316;
+  --p-primary-600: #ea580c;
+  --p-primary-700: #c2410c;
+  --p-primary-800: #9a3412;
+  --p-primary-900: #7c2d12;
+  --p-primary-950: #431407;
+}

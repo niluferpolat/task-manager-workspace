@@ -2,8 +2,17 @@ import { Injectable } from '@nestjs/common';
 import {TaskEntity, TaskStatus} from '@task-manager-workspace/models'
 import { UpdateTaskDto } from './dto/update-task.dto';
 import { CreateTaskDto } from './dto/task.dto';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Task } from './entity/task.entity';
+import { Repository } from 'typeorm';
 @Injectable()
 export class TaskService {
+  constructor(
+      @InjectRepository(Task)
+      private readonly taskRepository: Repository<Task>
+  ){
+  
+  }
     private tasks:TaskEntity[] = [
         {
             id: 1,
@@ -20,7 +29,7 @@ export class TaskService {
             taskText: "Wash the dishes"
         }
     ]
-     private seq = this.tasks.length;
+  
     findAll(userId: number){
         return this.tasks.filter(task=> task.userId === userId);
     }
@@ -30,16 +39,16 @@ export class TaskService {
     delete(id: number){
         return this.tasks.filter(task=>task.id !== id);
     }
-    create(dto: CreateTaskDto): TaskEntity {
-    const newTask: TaskEntity = {
-      id: ++this.seq,
-      userId:dto.userId,
-      title: dto.title ?? '',
-      taskText: dto.taskText ?? '',
-      status: TaskStatus.TODO,
-    };
-    this.tasks.push(newTask);
-    return newTask;
+  
+  async create(dto: CreateTaskDto): Promise<Task> {
+    const task = this.taskRepository.create({
+      title: dto.title,
+      taskText: dto.taskText,
+      userId: dto.userId,
+      status: dto.status ?? TaskStatus.TODO,
+      priority: dto.priority ?? 0,
+    });
+    return this.taskRepository.save(task);
   }
 
   update(id: number, dto: UpdateTaskDto): TaskEntity | undefined {

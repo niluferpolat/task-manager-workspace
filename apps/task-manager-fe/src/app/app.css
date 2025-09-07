@@ -1,0 +1,4 @@
+.page { transition: margin-left .2s ease; }
+.page.with-drawer { margin-left: 320px; }
+
+app-top-menu { position: sticky; top:0; z-index: 10; display:block; }

@@ -1,0 +1,22 @@
+<p-drawer
+  #drawerRef
+  [(visible)]="visible"
+  (visibleChange)="visibleChange.emit($event)"
+  (onHide)="visible=false; visibleChange.emit(false)"
+  position="left"
+ [style]="{ top: '68px', height: 'calc(100% - 68px)' }"
+  [modal]="false"
+  [dismissible]="true"
+  [closable]="true"
+
+
+          
+>
+  <ng-template #headless>
+      <div class="px-16" >
+    <div class="p-4 font-semibold">Menürewr</div>
+    <div class="p-4 flex-1 overflow-auto">İçerik…</div>
+    <div class="p-4">Alt</div>
+  </div>
+  </ng-template>
+</p-drawer>

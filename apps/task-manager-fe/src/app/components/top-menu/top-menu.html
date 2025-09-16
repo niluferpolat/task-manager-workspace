@@ -1,7 +1,7 @@
  <p-toolbar class="bg-white">
      <ng-template #start>
             <div class="flex items-center gap-2">
-                <p-button icon="pi pi-bars" class="p-button-text p-button-plain" (onClick)="toggle()"></p-button>
+                <p-button [icon]="this.visible ? 'pi pi-arrow-left': 'pi pi-bars'" class="p-button-text p-button-plain" (onClick)="toggle()"></p-button>
             </div>
      </ng-template>           
  </p-toolbar>

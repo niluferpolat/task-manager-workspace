@@ -1,13 +1,11 @@
 import { TaskStatus } from "@task-manager-workspace/models";
-import {Entity, PrimaryGeneratedColumn, Column} from "typeorm";
+import {Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, ManyToOne} from "typeorm";
+import { Project } from "../../project/entity/project.entity";
 
 @Entity()
 export class Task {
   @PrimaryGeneratedColumn()
   id!: number;
-
-  @Column()
-  title!: string;
 
   @Column()
   taskText!: string;
@@ -18,8 +16,15 @@ export class Task {
   @Column({ type: 'enum', enum: TaskStatus, default: TaskStatus.TODO })
   status!: TaskStatus;
 
-  @Column({ type: 'int', default: 0 }) // 0: low, 1: med, 2: high gibi
+  @Column({ type: 'int', default: 0 })
   priority!: number;
-  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP' })
+
+  @CreateDateColumn()
   createdAt!: Date;
+
+  @Column({type:'timestamp without time zone'})
+  deadline!:Date;
+
+  @ManyToOne(()=> Project, (project)=> project.tasks)
+  project:Project
 }

@@ -1,9 +1,12 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import { Drawer, DrawerModule } from 'primeng/drawer';
 import { ButtonModule } from 'primeng/button';
+import { Ripple } from 'primeng/ripple';
+import {RouterOutlet} from '@angular/router';
+
 @Component({
   selector: 'app-sidebar',
-  imports: [DrawerModule,ButtonModule],
+  imports: [DrawerModule, ButtonModule, Ripple, RouterOutlet],
   templateUrl: './sidebar.html',
   standalone:true,
   styleUrl: './sidebar.css',

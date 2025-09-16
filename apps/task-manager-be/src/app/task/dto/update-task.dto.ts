@@ -1,24 +1,28 @@
-import { IsInt, IsNotEmpty, IsString, IsEnum } from 'class-validator';
-import { Priority, TaskStatus } from '@task-manager-workspace/models';
+import { IsEnum, IsInt, IsOptional, IsString, IsDateString } from 'class-validator';
+import { TaskStatus } from '@task-manager-workspace/models';
 
 export class UpdateTaskDto {
+  @IsString()
+  @IsOptional()
+  taskText?: string;
+
   @IsInt()
-  @IsNotEmpty()
-  id: number;
-
-  @IsString()
-  @IsNotEmpty()
-  text: string;
-
-  @IsString()
-  @IsNotEmpty()
-  title: string;
-
-  @IsEnum(Priority)
-  @IsNotEmpty()
-  priority: Priority;
+  @IsOptional()
+  userId?: number;
 
   @IsEnum(TaskStatus)
-  @IsNotEmpty()
-  status: TaskStatus;
+  @IsOptional()
+  status?: TaskStatus;
+
+  @IsInt()
+  @IsOptional()
+  priority?: number;
+
+  @IsDateString()
+  @IsOptional()
+  deadline?: Date;
+
+  @IsInt()
+  @IsOptional()
+  projectId?: number;
 }

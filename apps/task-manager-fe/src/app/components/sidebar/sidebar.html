@@ -4,19 +4,30 @@
   (visibleChange)="visibleChange.emit($event)"
   (onHide)="visible=false; visibleChange.emit(false)"
   position="left"
- [style]="{ top: '68px', height: 'calc(100% - 68px)' }"
+  [style]="{ top: '68px', height: 'calc(100% - 68px)' }"
   [modal]="false"
   [dismissible]="true"
   [closable]="true"
-
-
-          
 >
   <ng-template #headless>
-      <div class="px-16" >
-    <div class="p-4 font-semibold">Menürewr</div>
-    <div class="p-4 flex-1 overflow-auto">İçerik…</div>
-    <div class="p-4">Alt</div>
-  </div>
+    <div class="flex flex-col h-full">
+      <div class="overflow-y-auto">
+        <ul class="list-none p-4 m-0">
+          <li>
+            <ul class="list-none p-0 m-0 overflow-hidden">
+              <li>
+                <a
+                  href="/"
+                  class="flex items-center cursor-pointer p-4 rounded-border text-gray-800 dark:text-gray-800 hover:bg-surface-100 dark:hover:bg-surface-100 duration-150 transition-colors p-ripple"
+                >
+                  <i class="pi pi-home mr-2"></i>
+                  <span class="font-medium">Dashboard</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
   </ng-template>
 </p-drawer>

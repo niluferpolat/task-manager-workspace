@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
-import { Sidebar } from '../../components/sidebar/sidebar';
-import { TopMenu } from '../../components/top-menu/top-menu';
-
+import { CardModule } from 'primeng/card';
 @Component({
   selector: 'app-home',
-  imports: [Sidebar,TopMenu],
+  imports: [CardModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })

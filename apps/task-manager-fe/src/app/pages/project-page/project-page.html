@@ -1,0 +1,10 @@
+<div class="m-5">
+ <div class="bg-white shadow-sm rounded p-4 justify-between flex">
+    <h1 class="font-bold mb-6 mt-2 text-2xl">Projects</h1>
+    <p-button icon="pi pi-plus" (click)="openCreateDialog()" class="text-sm" label="Create New Project" rounded="true"></p-button>
+ </div>
+
+
+ <!---Add/Edit Project-->
+ <app-add-edit-project-dialog [dialogType]="dialogType" [(visible)]="showCreateDialog"></app-add-edit-project-dialog>
+</div>

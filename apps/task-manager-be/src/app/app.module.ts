@@ -1,6 +1,8 @@
 import { Module } from '@nestjs/common';
 import {TypeOrmModule} from "@nestjs/typeorm"
 import { TaskModule } from './task/task.module';
+import { ProjectService } from './project/project.service';
+import { ProjectModule } from './project/project.module';
 import * as fs from 'fs';
 
 function runningInDocker(): boolean {
@@ -27,8 +29,9 @@ const IN_DOCKER = runningInDocker();
     autoLoadEntities: true,
      logging: true,         
   }),
-TaskModule],
+TaskModule,
+ProjectModule],
   controllers: [],
-  providers: [],
+  providers: [ProjectService],
 })
 export class AppModule {}
